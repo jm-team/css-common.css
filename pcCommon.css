@@ -12,6 +12,28 @@ button, input, select, textarea {
     font: 12px/1 "Microsoft Yahei",Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
 }
 
+/*input状态*/
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button[disabled],
+input[disabled] {
+    cursor: default;
+}
+
+/*单选、复选*/
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+
 /* HTML5 媒体文件跟 icons 保持一致 */
 audio,canvas,video {
     display: inline-block;*display: inline;*zoom: 1;
@@ -88,6 +110,17 @@ body .fn-hide {
 .pr{position:relative;}
 .pa{position:absolute;}
 
+/*对齐*/
+.tl{
+    text-align: left;
+}
+.tc {
+    text-align: center;
+}
+.tr{
+    text-align: right;
+}
+
 /* 设置内联, 减少浮动带来的bug */
 .fn-left,
 .fn-right {
@@ -100,16 +133,46 @@ body .fn-hide {
     float:right;
 }
 
-/* 清除浮动*/
-.clearfix:after {
-    content: '';
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+/* 清理浮动 */
+.fn-clear:before, .fn-clear:after, .clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
 }
-.clearfix {display: inline-block;}
 
+.fn-clear:after, .clearfix:after {
+    clear: both;
+}
+
+.fn-clear, .clearfix {
+    zoom: 1;
+    /* for IE6 IE7 */
+}
+
+/* 单行文字溢出时出现省略号，需设定宽度 */
+.fn-text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 两端对齐 CSS3 */
+.txt-justify {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+/*文字换行*/
+.text {
+    word-wrap: break-word;
+    overflow: hidden;
+    word-break: break-all;
+}
 
 .m0{margin:0;}
 .m10{margin:10px;}
